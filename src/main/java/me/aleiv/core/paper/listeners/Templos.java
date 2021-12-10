@@ -1,5 +1,6 @@
 package me.aleiv.core.paper.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -22,7 +23,7 @@ public class Templos {
       recipe.shape("***", "***", "*S*");
       recipe.setIngredient('*', Material.AIR);
       recipe.setIngredient('S', Material.BEACON);
-
+      Bukkit.addRecipe(recipe);
    }
 
 }
