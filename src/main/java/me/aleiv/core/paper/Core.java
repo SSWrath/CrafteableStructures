@@ -38,11 +38,12 @@ public class Core extends JavaPlugin {
             item.addEnchantment(Enchantment.MENDING, 1);
             NamespacedKey key = new NamespacedKey((@NotNull Plugin) this, "<yellow>Mike's Temple");
             ShapedRecipe recipe = new ShapedRecipe(key, item);
-            recipe.shape("***", "***", "*S*");
+            recipe.shape("", "", "S");
             recipe.setIngredient('*', Material.AIR);
             recipe.setIngredient('S', Material.BEACON);
             Bukkit.addRecipe(recipe);
         instance = this;
+
 
         RapidInvManager.register(this);
         BukkitTCT.registerPlugin(this);
