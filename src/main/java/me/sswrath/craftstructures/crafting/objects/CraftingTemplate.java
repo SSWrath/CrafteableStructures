@@ -1,4 +1,4 @@
-package me.sswrath.craftstructures.listeners;
+package me.sswrath.craftstructures.crafting;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.Recipe;

@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 
  * Utility class to use json files as flat file storage.
  * 
  * @author <b>jcedeno</b> - Original author.

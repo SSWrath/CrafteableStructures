@@ -1,9 +1,11 @@
-package me.sswrath.craftstructures.listeners;
+package me.sswrath.craftstructures.crafting;
 
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.sswrath.craftstructures.crafting.type.TemploMike;
+import me.sswrath.craftstructures.crafting.objects.CraftingTemplate;
 import me.sswrath.craftstructures.Core;
 
 /**
@@ -14,6 +16,7 @@ import me.sswrath.craftstructures.Core;
 public class CraftingManager {
     /** Variables */
     private Core instance;
+    /** Recipes Objects */
     private static TemploMike temploMikeRecipe;
 
     /**
@@ -25,22 +28,17 @@ public class CraftingManager {
         // Set the instance.
         this.instance = instance;
         // Register the recipes.
-        registerRecipes(false);
+        registerRecipes();
     }
 
     /**
      * A function that registers the recipes for the plugin.
-     * 
-     * @param force Whether or not to force the recipes to be registered. Otherwise,
-     *              it will only register the recipes if they are not already
-     *              registered.
      */
-    protected void registerRecipes(boolean force) {
-        if (force || temploMikeRecipe == null) {
-            temploMikeRecipe = new TemploMike(getRecipeNamespace("Templo Mike"));
-            // Register the recipe with bukkit.
-            Bukkit.addRecipe(temploMikeRecipe.recipe());
-        }
+    protected void registerRecipes() {
+        // Instantiate the object
+        temploMikeRecipe = new TemploMike(getRecipeNamespace("Templo Mike"));
+        // Register the object (recipe) with bukkit.
+        Bukkit.addRecipe(temploMikeRecipe.recipe());
     }
 
     /**
