@@ -7,7 +7,7 @@ import co.aikar.commands.PaperCommandManager;
 import kr.entree.spigradle.annotations.SpigotPlugin;
 import lombok.Getter;
 import me.sswrath.craftstructures.commands.GlobalCMD;
-import me.sswrath.craftstructures.listeners.CraftingManager;
+import me.sswrath.craftstructures.crafting.CraftingManager;
 import me.sswrath.craftstructures.listeners.GlobalListener;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import us.jcedeno.libs.rapidinv.RapidInvManager;

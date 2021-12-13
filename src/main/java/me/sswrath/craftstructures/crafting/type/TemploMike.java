@@ -5,6 +5,8 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 
+import me.sswrath.craftstructures.crafting.objects.CraftingTemplate;
+
 /**
  * Class that creates the recipe for the Temple of Mike.
  * 
