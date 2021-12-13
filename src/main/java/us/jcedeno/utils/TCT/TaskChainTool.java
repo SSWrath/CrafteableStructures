@@ -1,4 +1,4 @@
-package me.aleiv.core.paper.utilities.TCT;
+package us.jcedeno.utils.TCT;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -8,7 +8,9 @@ import java.util.concurrent.Executors;
 
 /**
  * Quick util that allows developer to chain tasks together without having to
- * think much about it
+ * think much about it.
+ * 
+ * @author jcedeno 
  */
 public class TaskChainTool {
     /**

@@ -1,4 +1,4 @@
-package me.aleiv.core.paper.listeners;
+package me.sswrath.craftstructures.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -20,9 +20,7 @@ public class TemploMike extends CraftingTemplate {
         setRecipe(recipe);
     }
 
-    private void setRecipe(ShapedRecipe recipe) { 
+    private void setRecipe(ShapedRecipe recipe) {
     }
 
 }
-    
-

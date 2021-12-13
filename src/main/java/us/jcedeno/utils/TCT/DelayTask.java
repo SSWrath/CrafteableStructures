@@ -1,4 +1,4 @@
-package me.aleiv.core.paper.utilities.TCT;
+package us.jcedeno.utils.TCT;
 
 /**
  * Utility Runnable that eases the creation of delayed tasks.

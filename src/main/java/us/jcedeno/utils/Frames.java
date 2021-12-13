@@ -1,8 +1,14 @@
-package me.aleiv.core.paper.utilities;
+package us.jcedeno.utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A utility to manage unicode characters as a list of custom unicode chracters
+ * that play an animation.
+ * 
+ * @author jcedeno
+ */
 public class Frames {
 
     /**
