@@ -4,9 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.sswrath.craftstructures.crafting.type.TemploMike;
-import me.sswrath.craftstructures.crafting.objects.CraftingTemplate;
 import me.sswrath.craftstructures.Core;
+import me.sswrath.craftstructures.crafting.type.TemploMike;
 
 /**
  * A class designed to manage all custom recipes for the plugin.
