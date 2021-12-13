@@ -1,18 +1,13 @@
 package me.sswrath.craftstructures;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import co.aikar.commands.PaperCommandManager;
 import kr.entree.spigradle.annotations.SpigotPlugin;
 import lombok.Getter;
-import me.aleiv.utils.NegativeSpaces;
 import me.sswrath.craftstructures.commands.GlobalCMD;
+import me.sswrath.craftstructures.listeners.CraftingManager;
 import me.sswrath.craftstructures.listeners.GlobalListener;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import us.jcedeno.libs.rapidinv.RapidInvManager;
@@ -42,42 +37,29 @@ public class Core extends JavaPlugin {
     private static @Getter Core instance;
     private @Getter Game game;
     private @Getter PaperCommandManager commandManager;
+    private @Getter CraftingManager craftingManager;
     private @Getter static MiniMessage miniMessage = MiniMessage.get();
 
     @Override
     public void onEnable() {
+        /** Set the instance */
         instance = this;
-
+        /** Register with dependencies */
         RapidInvManager.register(this);
         BukkitTCT.registerPlugin(this);
-        NegativeSpaces.registerCodes();
-
-        game = new Game(this);
+        /** Register the acf command manager */
+        this.commandManager = new PaperCommandManager(this);
+        /** Instantiate the game object. */
+        this.game = new Game(this);
+        /** Start the game loop */
         game.runTaskTimerAsynchronously(this, 0L, 20L);
-
-        // LISTENERS
-
+        /** Register the crafting manager */
+        this.craftingManager = new CraftingManager(this);
+        /** Register the Global Listener */
         Bukkit.getPluginManager().registerEvents(new GlobalListener(this), this);
-
-        // COMMANDS
-
-        commandManager = new PaperCommandManager(this);
-
+        /** Register the Global Commands after everything else is registered. */
         commandManager.registerCommand(new GlobalCMD(this));
 
-    }
-
-    public void registerRecipe() {
-        var item = new ItemStack(Material.COMMAND_BLOCK);
-        var meta = item.getItemMeta();
-        meta.displayName(MiniMessage.get().parse("<yellow>Mike's Temple"));
-        item.addEnchantment(Enchantment.MENDING, 1);
-        var key = new NamespacedKey(this, "<yellow>Mike's Temple");
-        var recipe = new ShapedRecipe(key, item);
-        recipe.shape("***", "***", "*S*");
-        recipe.setIngredient('*', Material.AIR);
-        recipe.setIngredient('S', Material.BEACON);
-        Bukkit.addRecipe(recipe);
     }
 
     @Override

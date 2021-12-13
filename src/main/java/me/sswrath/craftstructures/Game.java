@@ -9,7 +9,6 @@ import lombok.EqualsAndHashCode;
 import me.sswrath.craftstructures.events.GameTickEvent;
 
 /**
- * 
  * A simple object to handle all the state (data) of any game implementation.
  * 
  * @author <b>jcedeno</b> - Original author.

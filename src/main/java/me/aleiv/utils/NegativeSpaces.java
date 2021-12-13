@@ -12,15 +12,64 @@ import java.util.stream.Collectors;
  * @author <b>aleiv</b> - Original author.
  */
 public class NegativeSpaces {
-
+    /** Map to hold the negative spaces black magic. */
     private static HashMap<Integer, String> negativeSpaces = new HashMap<>();
+    /** Statically register the codes */
+    static {
+        negativeSpaces.clear();
+        negativeSpaces.put(-1, Character.toString('\uF801'));
+        negativeSpaces.put(-2, Character.toString('\uF802'));
+        negativeSpaces.put(-3, Character.toString('\uF803'));
+        negativeSpaces.put(-4, Character.toString('\uF804'));
+        negativeSpaces.put(-5, Character.toString('\uF805'));
+        negativeSpaces.put(-6, Character.toString('\uF806'));
+        negativeSpaces.put(-7, Character.toString('\uF807'));
+        negativeSpaces.put(-8, Character.toString('\uF808'));
 
+        negativeSpaces.put(-16, Character.toString('\uF809'));
+        negativeSpaces.put(-32, Character.toString('\uF80A'));
+        negativeSpaces.put(-64, Character.toString('\uF80B'));
+        negativeSpaces.put(-128, Character.toString('\uF80C'));
+        negativeSpaces.put(-256, Character.toString('\uF80D'));
+        negativeSpaces.put(-512, Character.toString('\uF80E'));
+        negativeSpaces.put(-1024, Character.toString('\uF80F'));
+
+        negativeSpaces.put(1, Character.toString('\uF821'));
+        negativeSpaces.put(2, Character.toString('\uF822'));
+        negativeSpaces.put(3, Character.toString('\uF823'));
+        negativeSpaces.put(4, Character.toString('\uF824'));
+        negativeSpaces.put(5, Character.toString('\uF825'));
+        negativeSpaces.put(6, Character.toString('\uF826'));
+        negativeSpaces.put(7, Character.toString('\uF827'));
+        negativeSpaces.put(8, Character.toString('\uF828'));
+
+        negativeSpaces.put(16, Character.toString('\uF829'));
+        negativeSpaces.put(32, Character.toString('\uF82A'));
+        negativeSpaces.put(64, Character.toString('\uF82B'));
+        negativeSpaces.put(128, Character.toString('\uF82C'));
+        negativeSpaces.put(256, Character.toString('\uF82D'));
+        negativeSpaces.put(512, Character.toString('\uF82E'));
+        negativeSpaces.put(1024, Character.toString('\uF82F'));
+    }
+
+    /**
+     * Obtains the maximum negative space code for the provided parameter value.
+     * 
+     * @param i The value to obtain the maximum negative space code for.
+     * @return The maximum negative space code for the provided parameter value.
+     */
     private static int getMax(int i) {
         var nums = negativeSpaces.keySet().stream().filter(ne -> ne > 0 && ne <= i).mapToInt(v -> v).max();
 
         return nums.isPresent() ? nums.getAsInt() : 0;
     }
 
+    /**
+     * Registers the negative space codes.
+     * 
+     * @param number The number to register the negative space codes for.
+     * @return The negative space codes for the provided number.
+     */
     public static String get(int number) {
 
         if (number == 0)
@@ -56,44 +105,6 @@ public class NegativeSpaces {
         }
 
         return negativeSpace.toString();
-
-    }
-
-    public static void registerCodes() {
-        negativeSpaces.clear();
-        negativeSpaces.put(-1, Character.toString('\uF801'));
-        negativeSpaces.put(-2, Character.toString('\uF802'));
-        negativeSpaces.put(-3, Character.toString('\uF803'));
-        negativeSpaces.put(-4, Character.toString('\uF804'));
-        negativeSpaces.put(-5, Character.toString('\uF805'));
-        negativeSpaces.put(-6, Character.toString('\uF806'));
-        negativeSpaces.put(-7, Character.toString('\uF807'));
-        negativeSpaces.put(-8, Character.toString('\uF808'));
-
-        negativeSpaces.put(-16, Character.toString('\uF809'));
-        negativeSpaces.put(-32, Character.toString('\uF80A'));
-        negativeSpaces.put(-64, Character.toString('\uF80B'));
-        negativeSpaces.put(-128, Character.toString('\uF80C'));
-        negativeSpaces.put(-256, Character.toString('\uF80D'));
-        negativeSpaces.put(-512, Character.toString('\uF80E'));
-        negativeSpaces.put(-1024, Character.toString('\uF80F'));
-
-        negativeSpaces.put(1, Character.toString('\uF821'));
-        negativeSpaces.put(2, Character.toString('\uF822'));
-        negativeSpaces.put(3, Character.toString('\uF823'));
-        negativeSpaces.put(4, Character.toString('\uF824'));
-        negativeSpaces.put(5, Character.toString('\uF825'));
-        negativeSpaces.put(6, Character.toString('\uF826'));
-        negativeSpaces.put(7, Character.toString('\uF827'));
-        negativeSpaces.put(8, Character.toString('\uF828'));
-
-        negativeSpaces.put(16, Character.toString('\uF829'));
-        negativeSpaces.put(32, Character.toString('\uF82A'));
-        negativeSpaces.put(64, Character.toString('\uF82B'));
-        negativeSpaces.put(128, Character.toString('\uF82C'));
-        negativeSpaces.put(256, Character.toString('\uF82D'));
-        negativeSpaces.put(512, Character.toString('\uF82E'));
-        negativeSpaces.put(1024, Character.toString('\uF82F'));
 
     }
 
