@@ -15,7 +15,7 @@ import lombok.Setter;
  * 
  * Utility class to use json files as flat file storage.
  * 
- * @author jcedeno
+ * @author <b>jcedeno</b> - Original author.
  */
 public class JsonConfig {
     private static Gson gson = new Gson();

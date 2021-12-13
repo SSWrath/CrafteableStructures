@@ -1,5 +1,6 @@
 package me.sswrath.craftstructures.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -8,17 +9,38 @@ import me.sswrath.craftstructures.Core;
 /**
  * A class designed to manage all custom recipes for the plugin.
  * 
- * @author jcedeno
+ * @author <b>jcedeno</b> - Original author.
  */
 public class CraftingManager {
-
-    // TemploMike GoldCarrot = new TemploMike(new NamespacedKey(instance, "Templo
-    // Mike"));
+    /** Variables */
     private Core instance;
+    private static TemploMike temploMikeRecipe;
 
+    /**
+     * Default constructor.
+     * 
+     * @param instance The instance of the plugin.
+     */
     public CraftingManager(Core instance) {
+        // Set the instance.
         this.instance = instance;
+        // Register the recipes.
+        registerRecipes(false);
+    }
 
+    /**
+     * A function that registers the recipes for the plugin.
+     * 
+     * @param force Whether or not to force the recipes to be registered. Otherwise,
+     *              it will only register the recipes if they are not already
+     *              registered.
+     */
+    protected void registerRecipes(boolean force) {
+        if (force || temploMikeRecipe == null) {
+            temploMikeRecipe = new TemploMike(getRecipeNamespace("Templo Mike"));
+            // Register the recipe with bukkit.
+            Bukkit.addRecipe(temploMikeRecipe.recipe());
+        }
     }
 
     /**
