@@ -1,4 +1,4 @@
-package me.aleiv.core.paper.utilities;
+package us.jcedeno.utils;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;

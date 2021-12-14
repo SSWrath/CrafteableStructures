@@ -1,4 +1,4 @@
-package me.aleiv.core.paper.utilities;
+package us.jcedeno.utils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,6 +11,11 @@ import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Utility class to use json files as flat file storage.
+ * 
+ * @author <b>jcedeno</b> - Original author.
+ */
 public class JsonConfig {
     private static Gson gson = new Gson();
 
@@ -56,7 +61,7 @@ public class JsonConfig {
 
         jsonObject = object;
     }
-    
+
     public String getRedisUri() {
         var uri = jsonObject.get("redisUri");
         return uri != null ? uri.getAsString() : null;

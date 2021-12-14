@@ -12,7 +12,7 @@ plugins{
     id 'io.freefair.lombok' version '6.1.0'
 }
 
-group = 'net.aleiv'
+group = 'me.sswrath'
 version = '0.1-SNAPSHOT'
 
 compileJava{
@@ -42,12 +42,11 @@ repositories {
 dependencies {
     //Paper
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
-    //Lombok
     // Use Protocol Lib
-    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.7.0";
+    compileOnly 'com.comphenix.protocol:ProtocolLib:4.7.0'
     // MiniMessage
     implementation 'net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT'
-
+    // Lombok
 	compileOnly 'org.projectlombok:lombok:1.18.12'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 	testCompileOnly 'org.projectlombok:lombok:1.18.12'
@@ -60,12 +59,11 @@ dependencies {
 }
 
 spigot {
-    authors 'aleiv'
+    authors 'sswrath'
     apiVersion '1.16'
     version '0.1'
-    name 'CoreTemplate'
+    name 'CrafteableStructures'
     load STARTUP
-    //depends = ['ProtocolLib']
 }
 
 shadowJar {
@@ -73,8 +71,7 @@ shadowJar {
     relocate 'co.aikar.locales', 'shadded.acf.locales'
     relocate 'acf-minecraft_', 'shadded.acf.properties.acf-minecraft_'
     relocate 'acf-core_', 'shadded.acf.properties.acf-core_'
-    relocate 'us.jcedeno.libs.rapidinv', 'com.yourpackage.rapidinv'
-    
+    relocate 'us.jcedeno.libs.rapidinv', 'me.sswrath.rapidinv'    
 }
 
 

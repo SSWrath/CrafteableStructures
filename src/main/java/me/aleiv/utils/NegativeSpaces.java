@@ -1,58 +1,21 @@
-package me.aleiv.core.paper.utilities;
+package me.aleiv.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 
+ * Black magic. Can't explain it.
+ * 
+ * @author <b>aleiv</b> - Original author.
+ */
 public class NegativeSpaces {
-
+    /** Map to hold the negative spaces black magic. */
     private static HashMap<Integer, String> negativeSpaces = new HashMap<>();
-    
-    private static int getMax(int i){
-        var nums = negativeSpaces.keySet().stream().filter(ne -> ne > 0 && ne <= i).mapToInt(v -> v).max();
-
-        return nums.isPresent() ? nums.getAsInt() : 0;
-    }
-
-    public static String get(int number){
-
-        if(number == 0) return "";
-
-        var neg = number < 0;
-        var n = Math.abs(number);
-        final var fn = n;
-        
-        var nums = negativeSpaces.keySet().stream().filter(nu -> nu > 0 && nu <= fn).collect(Collectors.toList());
-        List<Integer> count = new ArrayList<>();
-        var negativeSpace = new StringBuilder();
-
-        while(!nums.isEmpty()){
-            var r = getMax(n);
-
-            n -= r;
-            count.add(r);
-            final var fn2 = n;
-            nums.clear();
-            nums = negativeSpaces.keySet().stream().filter(nu -> nu > 0 && nu <= fn2).collect(Collectors.toList());
-
-        }
-
-        if(neg){
-            for (var i : count) {
-                negativeSpace.append(negativeSpaces.get(i-i*2));
-            }
-        }else{
-            for (var i : count) {
-                negativeSpace.append(negativeSpaces.get(i));
-            }
-        }
-
-        return negativeSpace.toString();
-
-    }
-
-    public static void registerCodes(){
+    /** Statically register the codes */
+    static {
         negativeSpaces.clear();
         negativeSpaces.put(-1, Character.toString('\uF801'));
         negativeSpaces.put(-2, Character.toString('\uF802'));
@@ -87,7 +50,62 @@ public class NegativeSpaces {
         negativeSpaces.put(256, Character.toString('\uF82D'));
         negativeSpaces.put(512, Character.toString('\uF82E'));
         negativeSpaces.put(1024, Character.toString('\uF82F'));
-        
     }
-    
+
+    /**
+     * Obtains the maximum negative space code for the provided parameter value.
+     * 
+     * @param i The value to obtain the maximum negative space code for.
+     * @return The maximum negative space code for the provided parameter value.
+     */
+    private static int getMax(int i) {
+        var nums = negativeSpaces.keySet().stream().filter(ne -> ne > 0 && ne <= i).mapToInt(v -> v).max();
+
+        return nums.isPresent() ? nums.getAsInt() : 0;
+    }
+
+    /**
+     * Registers the negative space codes.
+     * 
+     * @param number The number to register the negative space codes for.
+     * @return The negative space codes for the provided number.
+     */
+    public static String get(int number) {
+
+        if (number == 0)
+            return "";
+
+        var neg = number < 0;
+        var n = Math.abs(number);
+        final var fn = n;
+
+        var nums = negativeSpaces.keySet().stream().filter(nu -> nu > 0 && nu <= fn).collect(Collectors.toList());
+        List<Integer> count = new ArrayList<>();
+        var negativeSpace = new StringBuilder();
+
+        while (!nums.isEmpty()) {
+            var r = getMax(n);
+
+            n -= r;
+            count.add(r);
+            final var fn2 = n;
+            nums.clear();
+            nums = negativeSpaces.keySet().stream().filter(nu -> nu > 0 && nu <= fn2).collect(Collectors.toList());
+
+        }
+
+        if (neg) {
+            for (var i : count) {
+                negativeSpace.append(negativeSpaces.get(i - i * 2));
+            }
+        } else {
+            for (var i : count) {
+                negativeSpace.append(negativeSpaces.get(i));
+            }
+        }
+
+        return negativeSpace.toString();
+
+    }
+
 }

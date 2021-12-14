@@ -1,4 +1,4 @@
-package me.aleiv.core.paper.utilities;
+package us.jcedeno.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,8 @@ import lombok.Data;
 
 /**
  * Helper class that represent a line in 3D space.
+ * 
+ * @author <b>jcedeno</b> - Original author.
  */
 public @Data @AllArgsConstructor(staticName = "of") class LineVector {
     Vector u;
