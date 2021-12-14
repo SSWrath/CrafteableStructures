@@ -13,6 +13,7 @@ import lombok.Setter;
 
 /**
  * Utility class to use json files as flat file storage.
+ * TODO - Improve this class, it's from 2019.
  * 
  * @author <b>jcedeno</b> - Original author.
  */

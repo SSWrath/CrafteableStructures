@@ -6,8 +6,15 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
+ * <p>
  * BukkitTCT - Quick and dirty way to run tasks asynchronously and synchronously
  * without needing any dependencies.
+ * </p>
+ * <p>
+ * <ul>
+ * <li><b>TODO:</b> https://github.com/InfinityZ25/TaskChainTool - Update this.</li>
+ * </ul>
+ * </p>
  * 
  * @author jcedeno
  */

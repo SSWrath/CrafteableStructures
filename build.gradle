@@ -40,7 +40,7 @@ repositories {
 
 
 dependencies {
-    //Paper
+    // Paper
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
     // Use Protocol Lib
     compileOnly 'com.comphenix.protocol:ProtocolLib:4.7.0'
@@ -51,10 +51,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 	testCompileOnly 'org.projectlombok:lombok:1.18.12'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-    //ACF
+    // ACF
     implementation 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
-    //GUIs
+    // GUIs
     implementation 'com.github.noobstersmc:RapidInv:v0.0.1'
+    // Rapid Board
+    implementation 'com.github.noobstersmc:RapidBoard:v1.2.0'
+
 
 }
 
