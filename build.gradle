@@ -62,7 +62,7 @@ spigot {
     authors 'sswrath'
     apiVersion '1.16'
     version '0.1'
-    name 'Crafteable Structures'
+    name 'CrafteableStructures'
     load STARTUP
 }
 

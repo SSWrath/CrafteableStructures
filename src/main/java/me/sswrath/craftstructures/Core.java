@@ -33,12 +33,15 @@ import us.jcedeno.utils.TCT.BukkitTCT;
  */
 @SpigotPlugin
 public class Core extends JavaPlugin {
-
+    /** Instance. */
     private static @Getter Core instance;
+    /** Game Object. */
     private @Getter Game game;
+    /** Mini Message to manage colors easily. */
+    private @Getter static MiniMessage miniMessage = MiniMessage.get();
+    /** Managers. */
     private @Getter PaperCommandManager commandManager;
     private @Getter CraftingManager craftingManager;
-    private @Getter static MiniMessage miniMessage = MiniMessage.get();
 
     @Override
     public void onEnable() {
